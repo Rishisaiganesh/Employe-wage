@@ -17,22 +17,24 @@ namespace Employewage
             int totalEmployeeWage = 0;
             Random objRandom = new Random();
             int Check = objRandom.Next(0, 3);
-            if (Check == IS_FULL_TIME)
+            switch (Check)
             {
-                employeeHr = 8;
-                Console.WriteLine(" Employee Is Full time Employee");
-            }
-            else if (Check == IS_PART_TIME)
-            {
-                employeeHr = 4;
-                Console.WriteLine(" Employee is Part time Employee");
-            }
-            else
-            {
-                employeeHr = 0;
-                Console.WriteLine("Employee Is Absent");
+                case IS_FULL_TIME:
+                    employeeHr = 8;
+                    Console.WriteLine("Employee is full Time");
+                    break;
+                case IS_PART_TIME:
+                    Console.WriteLine("Emloyee is part time");
+                    employeeHr = 4;
+                    break;
+                default:
+                    Console.WriteLine("Employee is Absent");
+                    employeeHr = 0;
+                    break;
             }
 
+
+            //calculating Employee wage
             totalEmployeeWage = employeeHr * EMP_WAGE_PER_HR;
             Console.WriteLine("Employee Wage is :" + totalEmployeeWage);
         }
