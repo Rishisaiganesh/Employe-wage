@@ -8,6 +8,7 @@ namespace Employewage
         {
             EmployeWage emp = new EmployeWage();
             emp.EmpPresent();
+            Console.ReadKey();
         }
     }
 }
