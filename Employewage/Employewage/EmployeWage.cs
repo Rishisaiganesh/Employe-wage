@@ -7,10 +7,8 @@ namespace Employewage
     class EmployeWage
     {
 
-        public void EmpPresent()
-        {
-            const int isFullTime = 1;
-            const int isPartTime = 2;
+        const int isFullTime = 1;
+        const int isPartTime = 2;
         public int empRatePerHour = 20;
         public int workingDaysPerMonth = 20;
         public int totalSalaryForMonth = 0;
@@ -41,9 +39,23 @@ namespace Employewage
                 }
                 totalWorkingHour += empHour;
             }
+
+        }
+        public void showSalary()
+        {
             int salary = totalWorkingHour * empRatePerHour;
             Console.WriteLine(salary);
         }
     }
+
+    internal class Emp : EmployeWage
+    {
+        public void showSalaryMsg()
+        {
+            Console.WriteLine("EmployeeWage  inheriting an class employee");
+        }
+    }
+
 }
+
 

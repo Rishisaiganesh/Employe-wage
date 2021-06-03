@@ -6,9 +6,11 @@ namespace Employewage
     {
         static void Main(string[] args)
         {
-            EmployeWage emp = new EmployeWage();
-            emp.EmpPresent();
+            Console.WriteLine("Greating Employee !");
+            EmployeWage employee = new EmployeWage();
+            employee.showSalary();
             Console.ReadKey();
+
         }
     }
 }
