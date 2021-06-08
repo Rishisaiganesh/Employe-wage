@@ -4,58 +4,68 @@ using System.Text;
 
 namespace Employewage
 {
-    class EmployeWage
+   public class EmployeWage
     {
 
-        const int isFullTime = 1;
-        const int isPartTime = 2;
-        public int empRatePerHour = 20;
-        public int workingDaysPerMonth = 20;
-        public int totalSalaryForMonth = 0;
-        public int totalWorkingHour = 100;
-        public int empHour = 0;
+        ///Constants
+        public const int IS_FullTime = 1;
+        public const int IS_PartTime = 2;
+        public const int Employe_Salary_Per_HR = 20;
+        public const int Monthly_working_Days = 20;
+        public const int Total_Working_HrinMonth = 100;
 
-        public int totalWorkingHours = 0;
-        public int workingDays = 0;
-        public void WageCalculation()
+        ///Variables
+
+        public int EMPHR = 0;
+        public int Workingdays = 0;
+        public int TotalWorkingHR = 0;
+
+        ///IMPLEMENTING CLASS WorkHR
+
+        public void WorkHR()
         {
-            while (empHour <= totalWorkingHour && workingDays < workingDaysPerMonth)
+            while (EMPHR <= Total_Working_HrinMonth && Workingdays < Monthly_working_Days)
             {
-                workingDays++;
-                Random random = new Random();
-                int empCheck = random.Next(0, 3);
+                Workingdays++;
 
-                switch (empCheck)
+                Random EMP = new Random();
+                int empwage = EMP.Next(0, 3);
+                switch (empwage)
                 {
-                    case isFullTime:
-                        empHour = 8;
+                    case IS_FullTime:
+                        EMPHR = 8;
                         break;
-                    case isPartTime:
-                        empHour = 4;
+                    case IS_PartTime:
+                        EMPHR = 4;
                         break;
                     default:
-                        empHour = 0;
+                        EMPHR = 0;
                         break;
+
+
                 }
-                totalWorkingHour += empHour;
+                TotalWorkingHR += EMPHR;
             }
 
         }
-        public void showSalary()
-        {
-            int salary = totalWorkingHour * empRatePerHour;
-            Console.WriteLine(salary);
-        }
     }
-
-    internal class Emp : EmployeWage
+    /// <summary>
+    /// inheratance
+    /// </summary>
+    public class Salary : EmployeWage
     {
-        public void showSalaryMsg()
+       public void MonthlySalary()
         {
-            Console.WriteLine("EmployeeWage  inheriting an class employee");
+            WorkHR();
+            int monthlysalary = TotalWorkingHR * Employe_Salary_Per_HR;
+            Console.WriteLine("Monthly Salary:" + monthlysalary);
         }
-    }
 
+    }
 }
+
+
+
+
 
 
