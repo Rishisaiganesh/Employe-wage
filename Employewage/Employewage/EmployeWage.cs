@@ -12,47 +12,63 @@ namespace Employewage
         public const int IS_PartTime = 2;
         ///Variables
 
-        public int EMPHR = 0;
-        public int Workingdays = 0;
-        public int TotalWorkingHR = 0;
-
+        private string Company;
+        private int EMP_Salary_pr_HR;
+        private int NO_Of_Working_Days;
+        private int Max_HR_PR_Month;
+        private int Total_Wage;
         /// <summary>
-        /// <para name="Company"></para>
-        /// <para name="Monthly_working_Days"></para>
-        /// <para name="Employe_Salary_Per_HR"></para>
-        /// <para name="Total_Working_HrinMonth"></para>
+        /// Creating EmployeWage Class
         /// </summary>
-
-        public void WorkHR(string company, int Employe_Salary_Per_HR, int Monthly_working_Days, int Total_Working_HrinMonth)
+        /// <param name="company"></param>
+        /// <param name="EmpSalaryprHR"></param>
+        /// <param name="noworkingDays"></param>
+        /// <param name="MaxHRinMonth"></param>
+        public EmployeWage(string company, int EmpSalaryprHR, int noworkingDays, int MaxHRinMonth)
         {
-            while (EMPHR <= Total_Working_HrinMonth && Workingdays < Monthly_working_Days)
-            {
-                Workingdays++;
+            Company = company;
+            EMP_Salary_pr_HR = EmpSalaryprHR;
+            NO_Of_Working_Days = noworkingDays;
+            Max_HR_PR_Month = MaxHRinMonth;
 
+        }
+
+        public void salary()
+        {
+            /// variables
+            int empHR = 0;
+            int TotalEMPHR = 0;
+            int TotalWorkingDays = 0;
+            while (empHR <= Max_HR_PR_Month && TotalWorkingDays < NO_Of_Working_Days)
+            {
+                TotalEMPHR++;
                 Random EMP = new Random();
-                int empwage = EMP.Next(0, 3);
-                switch (empwage)
+                int Check = EMP.Next(0, 3);
+                switch (Check)
                 {
                     case IS_FullTime:
-                        EMPHR = 8;
-                        Console.WriteLine("FullTimeSalary");
+                        empHR = 8;
                         break;
                     case IS_PartTime:
-                        EMPHR = 4;
-                        Console.WriteLine("PartTimeSalary");
+                        empHR = 4;
                         break;
                     default:
-                        EMPHR = 0;
-                        Console.WriteLine("Employe is Absent");
+                        empHR = 0;
                         break;
 
-
                 }
-                TotalWorkingHR += EMPHR;
-            }
-            int Salary = Workingdays * EMPHR;
-            Console.WriteLine("CompanyName:" + company + "Total Salary paying by company:" + Salary);
+                TotalEMPHR += empHR;
+                Console.WriteLine("Day:" + TotalWorkingDays + "NUMBER OF HOURS EMP DONE:" + empHR);
 
+            }
+            Total_Wage = TotalEMPHR * EMP_Salary_pr_HR;
+            Console.WriteLine("TotalEmploye Wage:" + Company + Total_Wage);
+
+
+        }
+        public string totalsal()
+        {
+            return Company + Total_Wage;
 
         }
     }
