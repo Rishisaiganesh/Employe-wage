@@ -4,25 +4,26 @@ using System.Text;
 
 namespace Employewage
 {
-   public class EmployeWage
+    public class EmployeWage
     {
 
         ///Constants
         public const int IS_FullTime = 1;
         public const int IS_PartTime = 2;
-        public const int Employe_Salary_Per_HR = 20;
-        public const int Monthly_working_Days = 20;
-        public const int Total_Working_HrinMonth = 100;
-
         ///Variables
 
         public int EMPHR = 0;
         public int Workingdays = 0;
         public int TotalWorkingHR = 0;
 
-        ///IMPLEMENTING CLASS WorkHR
+        /// <summary>
+        /// <para name="Company"></para>
+        /// <para name="Monthly_working_Days"></para>
+        /// <para name="Employe_Salary_Per_HR"></para>
+        /// <para name="Total_Working_HrinMonth"></para>
+        /// </summary>
 
-        public void WorkHR()
+        public void WorkHR(string company, int Employe_Salary_Per_HR, int Monthly_working_Days, int Total_Working_HrinMonth)
         {
             while (EMPHR <= Total_Working_HrinMonth && Workingdays < Monthly_working_Days)
             {
@@ -34,35 +35,31 @@ namespace Employewage
                 {
                     case IS_FullTime:
                         EMPHR = 8;
+                        Console.WriteLine("FullTimeSalary");
                         break;
                     case IS_PartTime:
                         EMPHR = 4;
+                        Console.WriteLine("PartTimeSalary");
                         break;
                     default:
                         EMPHR = 0;
+                        Console.WriteLine("Employe is Absent");
                         break;
 
 
                 }
                 TotalWorkingHR += EMPHR;
             }
+            int Salary = Workingdays * EMPHR;
+            Console.WriteLine("CompanyName:" + company + "Total Salary paying by company:" + Salary);
+
 
         }
     }
-    /// <summary>
-    /// inheratance
-    /// </summary>
-    public class Salary : EmployeWage
-    {
-       public void MonthlySalary()
-        {
-            WorkHR();
-            int monthlysalary = TotalWorkingHR * Employe_Salary_Per_HR;
-            Console.WriteLine("Monthly Salary:" + monthlysalary);
-        }
 
-    }
+
 }
+
 
 
 

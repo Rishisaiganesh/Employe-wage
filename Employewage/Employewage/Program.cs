@@ -7,8 +7,10 @@ namespace Employewage
         static void Main(string[] args)
         {
             Console.WriteLine("Greating Employee !");
-            Salary WAge = new Salary();
-            WAge.MonthlySalary();
+            EmployeWage Salary = new EmployeWage();
+            Console.WriteLine("EmployeSalary");
+            Salary.WorkHR("Xyz", 100, 20, 100);
+          
         }
     }
 }
